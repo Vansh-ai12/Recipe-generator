@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body id="one">
+<div class="fancy-text">Dil-E-Daawat</div>
+<div id="head"><div id="image"></div></div>
+
+    <div id="container">
+        <form action="/" method="post" autocomplete="off">
+
+            <div id="th">
+                <select id="sb" name="cuisine" class="pro" onchange="window.location.href='/?cuisine=' + this.value">
+                    <option value="Choose a Cuisine" selected disabled>Choose a Cuisine</option>
+                    {% for cuisine in cuisines %}
+                        <option value="{{ cuisine }}" {% if selected_cuisine == cuisine %}selected{% endif %}>
+                            {{ cuisine }}
+                        </option>
+                    {% endfor %}
+                </select>
+                
+            </div>
+            <div id="icons">
+        
+                <select name="dish" id="options" class="pro" >
+                    <option selected disabled>Choose a Dish</option>
+                    {% for dish in dishes %}
+                        <option value="{{ dish }}">{{ dish }}</option>
+                    {% endfor %}
+                    
+                </select>
+            </div>
+            <div id="button">
+                <button id="btn" class="pro">Search</button>
+            </div>
+            
+        </form>
+        
+    </div>
+  
+    </form>
+    <br><br>
+    
+       
+</body>
+</html>
